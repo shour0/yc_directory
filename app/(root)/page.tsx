@@ -1,20 +1,16 @@
-import SearchFrom from "@/components/SearchFrom";
+import AnimatedHero from "@/components/AnimatedHero";
+
 
 export default async function Home({searchParams}:
    {searchParams: Promise<{query?:string}>}) {
-    const query = (await searchParams).query ;
-
+    const query = (await searchParams).query;
+    // save query for later use
   return (
- <>
-  <section className="pink_container">
-    <h1 className="heading">Pitch Your Startup, <br/> Connect With Entrepreneurs</h1>
-
-    <p className="sub-heading !max-w-3xl">
-      Submit Ideas, Vote on Pitches, and Get Noticed in Virtual Competitions.
-    </p>
-  <SearchFrom query={query}/>
- </section>
-
- </>
+    <>
+      <AnimatedHero query={query}  />
+      <section className="mt-[1000rem]">
+        <h1>hello</h1>
+      </section>
+    </>
   );
 }
