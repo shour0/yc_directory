@@ -5,7 +5,7 @@ import Link from "next/link"
 import { Button } from "./ui/button";
 import { Author, Startup } from "@/sanity/types";
 
-export type StartupTypeCard = Omit<Startup, "author"> & {author?: Author}
+export type StartupTypeCard = Omit<Startup, "author"> & {author?: Author} 
 
 const StartupCard = ({post}: {post: StartupTypeCard}) => {
 
@@ -18,13 +18,13 @@ const StartupCard = ({post}: {post: StartupTypeCard}) => {
     _id,
     image,
     description
-    } = post;
+    } = post; // nested destructuring
   return (
 
     <li className="startup-card group">
       <div className="flex-between">
         <p className="startup_card_date">
-          {formatDate(_createdAt)}
+          {formatDate(_createdAt)} 
         </p>
         <div className="flex gap-1.5">
          <EyeIcon className="size-6 text-primary"/>
@@ -50,7 +50,7 @@ const StartupCard = ({post}: {post: StartupTypeCard}) => {
       <p className="startup-card_desc">
         {description}
       </p>
-
+he
       <img src={image} alt="placeholder" className="startup-card_img"/>
       </Link>
       

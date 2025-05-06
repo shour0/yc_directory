@@ -3,14 +3,12 @@ import StartupCard, { StartupTypeCard } from "@/components/StartupCard";
 import { STARTUPS_QUERY } from "@/lib/queries";
 import { client } from "@/sanity/lib/client";
 
-
-
 export default async function Home({searchParams}:
    {searchParams: Promise<{query?:string}>}) {
-    const query = (await searchParams).query;
-    const posts = await client.fetch(STARTUPS_QUERY)
+    const query = (await searchParams).query; // extracts the query parameter
+    const posts = await client.fetch(STARTUPS_QUERY) // Fetches startup data
 
-    console.log(JSON.stringify(posts, null, 2))
+    console.log(JSON.stringify(posts, null, 2)) // Logs the fetched data
 
   return (
     <>
