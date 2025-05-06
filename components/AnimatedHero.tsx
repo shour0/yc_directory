@@ -45,16 +45,7 @@ const AnimatedHero = ({ query }: AnimatedHeroProps) => {
 
   useGSAP(() => {
     const master = gsap.timeline({ defaults: { ease: "power3.out" } });
-    const bgTl = gsap.timeline();
-
-    bgTl.fromTo(heroRef.current, 
-      { backgroundSize: "0% 100%" }, 
-      { backgroundSize: "5% 100%", duration: 1, ease: "power2.inOut" }
-    );
-    
-    master.add(bgTl, 0);
-    
-
+  
     const headingTl = gsap.timeline();
 
     if (headingRef.current && headingWrapperRef.current) {
