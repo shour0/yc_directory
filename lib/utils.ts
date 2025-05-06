@@ -6,11 +6,11 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-export function formatDate(date: string) {
+export function formatDate(date: string) { 
   return new Date(date).toLocaleDateString("en-US", {
     month: "long",
     day: "numeric",
-    year: "numeric",
+    year: "numeric", 
   });
 }
 
@@ -19,14 +19,4 @@ export function formatDate(date: string) {
 import { ScrollTrigger } from "gsap/all"
 gsap.registerPlugin(ScrollTrigger)
 
-export const animationWithGsap = (target: string, animationProps: any, scrollProps: any) => {
-  gsap.to(target, {
-    ...animationProps,
-    scrollTrigger: {
-      trigger: target,
-      toggleActions: 'restart reverse restart reverse',
-      start: 'top 85%',
-      ...scrollProps
-    }
-  })
-}
+
