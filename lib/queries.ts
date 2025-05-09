@@ -25,5 +25,6 @@ export const STARTUP_BY_ID_QUERY = defineQuery(`*[_type == "startup" && _id == $
   views,
   description,
   category,
-  image 
+  image,
+  pitch
 }`)
