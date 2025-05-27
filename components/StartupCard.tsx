@@ -1,13 +1,39 @@
+'use client'
+
 import { formatDate } from "@/lib/utils"
 import { EyeIcon } from "lucide-react"
 import Image from "next/image";
 import Link from "next/link"
 import { Button } from "./ui/button";
 import { Author, Startup } from "@/sanity/types";
-
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 export type StartupTypeCard = Omit<Startup, "author"> & {author?: Author} 
 
 const StartupCard = ({post}: {post: StartupTypeCard}) => {
+useGSAP(() => {
+    gsap.fromTo('.startup-card', 
+      {
+        opacity: 0,
+        y: 60,
+        scale: 0.9,
+        rotationX: 15,
+        filter: "blur(8px)"
+      },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        rotationX: 0,
+        filter: "blur(0px)",
+        delay: 1.5,
+        duration: 1,
+        stagger: 0.1,
+        ease: "power3.out",
+        transformOrigin: "center bottom"
+      }
+    )
+  }, [])
 
   const {
    _createdAt,
@@ -21,7 +47,7 @@ const StartupCard = ({post}: {post: StartupTypeCard}) => {
     } = post; // nested destructuring
   return (
 
-    <li className="startup-card group">
+    <li className="startup-card group opacity-0">
       <div className="flex-between">
         <p className="startup_card_date">
           {formatDate(_createdAt)} 

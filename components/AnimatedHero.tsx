@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { TextPlugin } from "gsap/TextPlugin";
@@ -41,7 +41,13 @@ const AnimatedHero = ({ query }: AnimatedHeroProps) => {
     };
   };
 
- 
+ // Set navigation flag on component mount
+  useEffect(() => {
+    const hasNavigated = sessionStorage.getItem('hasNavigated');
+    if (!hasNavigated) {
+      sessionStorage.setItem('shouldAnimate', 'true');
+    }
+  }, []);
 
   useGSAP(() => {
     const master = gsap.timeline({ defaults: { ease: "power3.out" } });
@@ -66,7 +72,7 @@ const AnimatedHero = ({ query }: AnimatedHeroProps) => {
           clipPath: "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)"},
         {
           clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-          duration: 1.2,
+          duration: 1,
           ease: "power4.inOut"
         }
       );
@@ -121,7 +127,7 @@ const AnimatedHero = ({ query }: AnimatedHeroProps) => {
       );
     }
    
-    master.add(subheadingTl, 1.5);
+    master.add(subheadingTl, 0.75);
 
     const formTl = gsap.timeline();
     
@@ -150,8 +156,9 @@ const AnimatedHero = ({ query }: AnimatedHeroProps) => {
 
     }
 
-    master.add(formTl, 2.2);
+    master.add(formTl, 1);
 
+    
   
     return () => {
       master.kill();
