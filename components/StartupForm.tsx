@@ -8,9 +8,18 @@ import { Button } from '@/components/ui/button'
 import { Send } from 'lucide-react'
 
 const StartupForm = () => {
-  const [errors, setErrors] = useState<Record<string, string>>({})
+  const [errors] = useState<Record<string, string>>({})
   const [pitch, setPitch] = useState("")
 
+  //  const handleFormSubmit = () => {}
+
+  // const [state, formAction, isPending] = useActionState(handleFormSubmit, {
+  //   error: "",
+  //   status: "INITIAL",
+    
+  // })
+
+ 
   const isPending = false
 
   return (
