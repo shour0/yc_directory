@@ -76,7 +76,6 @@ useGSAP(() => {
       <p className="startup-card_desc">
         {description}
       </p>
-he
       <img src={image} alt="placeholder" className="startup-card_img"/>
       </Link>
       
